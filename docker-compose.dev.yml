@@ -1,0 +1,14 @@
+version: '3'
+services:
+  angular_test_app_dev:
+    container_name: angular_test_app_dev
+    image: angular_test_app_dev
+    command: npm run start
+    volumes:
+      - .:/var/angular_test_app
+      - /var/angular_test_app/node_modules
+    ports:
+      - "4200:4200"
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development

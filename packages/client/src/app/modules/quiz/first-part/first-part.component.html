@@ -1,0 +1,13 @@
+<div class="main">
+  <h1>Quiz 1/2</h1>
+  <div class="quiz-one">
+    <span>
+      Network connection status: {{ getNetworkConnection }}
+    </span>
+    <mat-slide-toggle [checked]="checked" (change)="onlineStatusChanger($event)">is online?</mat-slide-toggle>
+    <button mat-button (click)="longPollingService.triggerLongPolling()">Request trigger!</button>
+  </div>
+  <div class="quiz-one">
+    <button mat-button (click)="getUserLoggedInStatus()">Get User Logged in status!</button>
+  </div>
+</div>

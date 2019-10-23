@@ -1,0 +1,17 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap --hoist",
+    "bumpversion": "lerna publish --cd-version patch --yes --skip-git --skip-npm",
+    "postinstall": "npm run bootstrap",
+    "clean": "lerna clean --yes && npm run rmrf",
+    "start": "lerna run --parallel start",
+    "dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up",
+    "lint:client": "(cd packages/client && npm run lint)",
+    "rmrf": "(rm -rf node_modules || rd /s /q node_modules) && echo root folder node_modules was removed"
+  },
+  "devDependencies": {
+    "lerna": "^3.18.2"
+  }
+}

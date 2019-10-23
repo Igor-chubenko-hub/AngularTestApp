@@ -1,0 +1,15 @@
+<div [ngClass]="{'dark-theme': themeService.isDarkMode }" class="mat-app-background">
+  <nav mat-tab-nav-bar class="nav-panel">
+    <a mat-tab-link
+       *ngFor="let link of navLinks"
+       [routerLink]="[link.url]"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{link.label}}
+    </a>
+    <div class="slider-container">
+      <mat-slide-toggle class="theme-slider" [checked]="themeService.isDarkMode" (change)="themeService.changeMode($event)">dark mode</mat-slide-toggle>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

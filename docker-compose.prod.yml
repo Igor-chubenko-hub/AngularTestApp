@@ -1,0 +1,10 @@
+version: '3'
+services:
+  angular_test_app_dev:
+    container_name: angular_test_app_prod
+    image: angular_test_app_prod
+    command: ng build --prod
+    volumes:
+      - .:/var/angular_test_app
+    environment:
+      - NODE_ENV=production
